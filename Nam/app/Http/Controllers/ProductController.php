@@ -73,7 +73,8 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        //
+        $product = Product::find($id);
+        return view('products/edit')->with('product', $product);
     }
 
     /**
@@ -85,7 +86,21 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'name' => 'required',
+            'description' => 'required',
+            'imageurl' => 'required',
+            'price' => 'required',
+        ]);
+
+        $product = Product::find($id);
+        $product->name = $request->input('name');
+        $product->description = $request->input('description');
+        $product->imageurl = $request->input('imageurl');
+        $product->price = $request->input('price');
+        $product->save();
+        
+        return redirect('/products')->with('success', 'Product Updated');
     }
 
     /**
