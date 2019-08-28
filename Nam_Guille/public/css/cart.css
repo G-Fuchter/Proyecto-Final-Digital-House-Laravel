@@ -1,0 +1,31 @@
+.cart-table-container table tr td img {
+    width: 5rem;
+}
+
+.cart-table-container table {
+    background-color: #fff;
+    border: solid;
+    border-width: 2px;
+    border-color: #cc3300;
+    box-shadow: 8px 8px 0 0 #cc3300;
+}
+
+.cart-table-container table tr {
+    border-top: solid #cc3300;
+    border-bottom: solid #cc3300;
+}
+
+.cart-container {
+    width: 100%;
+}
+
+.cart-container h1{
+    width: 100%;
+    text-align: center;
+}
+
+.cart-table-container {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 20%;
+}
