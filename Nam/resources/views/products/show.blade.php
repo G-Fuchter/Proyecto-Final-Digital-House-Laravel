@@ -21,6 +21,7 @@
                     @if(Auth::user()->roll === 'admin')
                         <a href="/products/{{$product->id}}/edit" class="btn btn_cta dark">Edit Product</a>
                         <form action="{{ route('products.update', ['id' => $product->id]) }}" method="post">
+                            @csrf
                             {{ method_field('DELETE') }}
                             <input type="submit" name="Delete" value="Delete" class="btn btn-danger" />
                         </form>
