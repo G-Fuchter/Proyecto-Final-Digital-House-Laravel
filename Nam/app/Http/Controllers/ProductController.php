@@ -10,6 +10,7 @@ class ProductController extends Controller
     public function __construct()
     {
         $this->middleware('auth', ['except' => ['index', 'show']]);
+        $this->middleware('auth.privilege', ['except' => ['index', 'show']]);
     }
     /**
      * Display a listing of the resource.
@@ -29,10 +30,6 @@ class ProductController extends Controller
      */
     public function create()
     {
-        if (auth()->user()->roll !== 'admin') {
-            return redirect('/products')->with('error', 'Unauthorized Page');
-        }
-        
         return view('products/create');
     }
 
@@ -44,10 +41,6 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        if (auth()->user()->roll !== 'admin') {
-            return redirect('/products')->with('error', 'Unauthorized Page');
-        }
-
         $this->validate($request, [
             'name' => 'required',
             'description' => 'required',
@@ -85,10 +78,6 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        if (auth()->user()->roll !== 'admin') {
-            return redirect('/products')->with('error', 'Unauthorized Page');
-        }
-
         $product = Product::find($id);
         return view('products/edit')->with('product', $product);
     }
@@ -102,10 +91,6 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
-        if (auth()->user()->roll !== 'admin') {
-            return redirect('/products')->with('error', 'Unauthorized Page');
-        }
-
         $this->validate($request, [
             'name' => 'required',
             'description' => 'required',
@@ -131,9 +116,6 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-        if (auth()->user()->roll !== 'admin') {
-            return redirect('/products')->with('error', 'Unauthorized Page');
-        }
 
         $product = Product::find($id);
         $product->delete();
