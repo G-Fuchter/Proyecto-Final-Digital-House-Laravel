@@ -11,7 +11,7 @@ class Product extends Model
     public $primaryKey = 'id';
     public $timestamps = false;
 
-    public function cart() {
-        return $this->belongsToMany(User::class, 'cart_item', 'user_id', 'product_id');
+    public function cart_item() {
+        return $this->belongsToMany(Cart::class, 'cart_item', 'user_id', 'product_id');
     }
 }
