@@ -18,5 +18,5 @@ Route::resource('products', 'ProductController');
 Auth::routes();
 
 Route::get('/cart', 'CartController@index')->name('cart');
-Route::get('/cart/add/{id}', 'CartController@add');
+Route::get('/cart/add/{id}', 'CartController@add')->name('cart.item.add');
 Route::get('/cart/remove/{id}', 'CartController@remove')->name('cart.item.remove');

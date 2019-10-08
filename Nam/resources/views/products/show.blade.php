@@ -16,7 +16,7 @@
                 </div>
                 </div>
                 <div class="action-row">
-                <a href="/cart/add/{{$product->id}}" class="btn btn_cta dark">Add to cart</a>
+                <a onclick="onAddToCartClick('{{route('cart.item.add',$product->id)}}')" class="btn btn_cta dark">Agregar al carro</a>
                 @if(Auth::check())
                     @if(Auth::user()->roll === 'admin')
                         <a href="/products/{{$product->id}}/edit" class="btn btn_cta dark">Edit Product</a>

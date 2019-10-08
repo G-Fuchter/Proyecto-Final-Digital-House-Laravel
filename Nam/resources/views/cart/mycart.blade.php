@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="cart-container">
-    <h1>My Cart</h1>
+    <h1>Mi Carrito</h1>
     @if(count($cart->cart_item) > 0)
         <div class="cart-table-container">
             <table>
@@ -10,30 +10,27 @@
                     <th>Imagen</th>
                     <th>Nombre</th>
                     <th>Descripción</th>
-                    <th>Precio</th>
+                    <th>Cantidad</th>
+                    <th>Precio Total</th>
+                    <th></th>
                 </tr>
-                @foreach($cart->cart_item as $product)
-                <tr id="{{$product->id}}">
-                        <td><img src={{$product->imageurl}}></td>
-                        <td>{{$product->name}}</td>
-                        <td>{{$product->description}}</td>
-                        <td>{{$product->price}}</td>
-                        <td><i class="fas fa-times-circle" onclick="onRemoveClick({{$product->id}},'{{route('cart.item.remove', $product->id)}}')"></i></td>
+                @foreach($cart->cart_item as $single_cart_item)
+                <tr id="{{$single_cart_item->id}}">
+                        <td><img src={{$single_cart_item->product->imageurl}}></td>
+                        <td>{{$single_cart_item->product->name}}</td>
+                        <td>{{$single_cart_item->product->description}}</td>
+                        <td>{{$single_cart_item->quantity}}</td>
+                        <td>{{$single_cart_item->product->price * $single_cart_item->quantity}}</td>
+                        <td><i class="fas fa-times-circle remove-button" onclick="onRemoveClick({{$single_cart_item->id}},'{{route('cart.item.remove', $single_cart_item->id)}}')"></i></td>
                     </tr>
                 @endforeach
             </table>
         </div>
     @else
-        <p>No products found</p>
+        <p>El carrito esta vacio!</p>
     @endif
 </div>
 <script>
-    function onRemoveClick(id, theUrl) {
-        var xmlHttp = new XMLHttpRequest();
-        xmlHttp.open("GET", theUrl, true); // true for asynchronous 
-        xmlHttp.send(null);
-        let row = document.getElementById(id);
-        row.parentNode.removeChild(row);
-    }
+    
 </script>
 @endsection

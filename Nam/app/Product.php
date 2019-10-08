@@ -12,6 +12,6 @@ class Product extends Model
     public $timestamps = false;
 
     public function cart_item() {
-        return $this->belongsToMany(Cart::class, 'cart_item', 'user_id', 'product_id');
+        return $this->hasMany(CartItem::class, "cart_items");
     }
 }
