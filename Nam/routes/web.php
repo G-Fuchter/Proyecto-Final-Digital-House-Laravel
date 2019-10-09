@@ -20,3 +20,7 @@ Auth::routes();
 Route::get('/cart', 'CartController@index')->name('cart');
 Route::get('/cart/add/{id}', 'CartController@add')->name('cart.item.add');
 Route::get('/cart/remove/{id}', 'CartController@remove')->name('cart.item.remove');
+
+Route::get('/admin', 'AdminController@index')->name('admin');
+Route::get('/admin/users', 'AdminController@users')->name('admin.users');
+Route::get('/admin/users/remove/{id}', 'AdminController@remove_user')->name('admin.users.remove');
