@@ -20,6 +20,7 @@ class CreateProductsTable extends Migration
             $table->string('description');
             $table->string('imageurl');
             $table->integer('price');
+            $table->boolean('promoted');
         });
     }
 

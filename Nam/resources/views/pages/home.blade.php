@@ -25,21 +25,23 @@
     <div class="container d-flex justify-content-center align-content-center">
         <div class="row d-flex justify-content-center align-content-center px-3">
             <header class="col-12 d-flex justify-content-between align-content-center">
-                <h2 class="accent">Combos destacados</h2>
+                <h2 class="accent">Tuppers destacados</h2>
                 <a href="#" class="accent">Mirá todos</a>
             </header>
             <div class="row">
+                @foreach ($products as $product)
                 <div class="col-sm-4">
                     <div class="card mb-3">
-                        <img src="img/products/1.jpg" class="card-img-top" alt="...">
+                        <img src="{{$product->imageurl}}" class="card-img-top" alt="...">
                         <div class="card-body text-center">
-                            <h5 class="card-title accent gill">Sorpresa Veggie</h5>
-                            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                            <a href="#" class="btn border accent_border accent">¡Lo quiero!</a>
+                            <h5 class="card-title accent gill">{{$product->name}}</h5>
+                            <p class="card-text">{{$product->description}}</p>
+                            <a href="{{route('products.show',$product->id)}}" class="btn border accent_border accent">¡Lo quiero!</a>
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-4">
+                @endforeach
+                <!--<div class="col-sm-4">
                     <div class="card mb-3">
                         <img src="img/products/1.jpg" class="card-img-top" alt="...">
                         <div class="card-body text-center">
@@ -58,7 +60,7 @@
                             <a href="#" class="btn border accent_border accent">¡Lo quiero!</a>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>

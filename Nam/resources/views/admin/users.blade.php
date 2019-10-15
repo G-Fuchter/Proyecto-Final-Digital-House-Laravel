@@ -2,7 +2,14 @@
 
 @section('content')
 <div class="cart-container">
-    <h1>Usuarios</h1>
+    <div class="admin-page-title">
+        <a href="{{route('admin.users')}}"><h1>Usuarios</h1></a>
+    </div>
+    <div class="search-container">
+        <span> Nomber o Mail del Usuario: </span>
+        <input type="text" id="search-text">
+        <button onclick="searchTerm('{{route('admin.users.search','')}}')">Buscar</button>
+    </div>
     @if(count($users) > 0)
         <div class="cart-table-container">
             <table>

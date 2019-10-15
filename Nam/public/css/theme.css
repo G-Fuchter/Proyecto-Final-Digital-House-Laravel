@@ -1,7 +1,7 @@
 body {
     padding-top: 5rem;
     color: #999999;
-    font-family: 'kappa_textbook';
+    font-family: 'kappa_textbook', 'Open Sans', sans-serif;
 }
 
 
@@ -487,3 +487,40 @@ form label {
     from {bottom: 30px; opacity: 1;}
     to {bottom: 0; opacity: 0;}
   }
+
+  /* Admin Page */
+.button-panel-container {
+    display: flex;
+    padding: 1rem 30%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.search-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.admin-page-title {
+    text-align: center;
+    text-decoration: underline;
+}
+
+.admin-toolbar {
+    padding: 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.admin-toolbar i{ 
+    font-size: 24px;
+}
+
+/* FAQ */
+
+.faq-container {
+    padding: 2rem 15%;
+}

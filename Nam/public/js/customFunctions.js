@@ -31,3 +31,8 @@ function showToast(message, success = true) {
     x.className = className;
     setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
 }
+
+function searchTerm(uri) {
+    var term = document.getElementById("search-text");
+    document.location.replace(uri + '/' + term.value);
+}

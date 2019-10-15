@@ -24,6 +24,13 @@
                                 <label for="priceARS">Price AR$: </label>
                                 <input type="text" name="price" class="form-control" id="priceARS">
                         </div>
+                        <div class="from-group">
+                            <label for="promotedOptions">Promocionar el producto? </label>
+                            <select name="promoted" id="promotedOptions" class="form-control">
+                                <option value="false">No</option>
+                                <option value="true">Sí</option>
+                            </select>
+                        </div>
                     </div>
 
                     <div class="form-group mt-4">

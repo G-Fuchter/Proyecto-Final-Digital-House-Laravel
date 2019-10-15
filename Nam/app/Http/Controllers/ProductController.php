@@ -46,6 +46,7 @@ class ProductController extends Controller
             'description' => 'required',
             'imageurl' => 'required',
             'price' => 'required',
+            'promoted' => 'required'
         ]);
 
         $product = new Product;
@@ -53,9 +54,14 @@ class ProductController extends Controller
         $product->description = $request->input('description');
         $product->imageurl = $request->input('imageurl');
         $product->price = $request->input('price');
+        if($request->input('promoted') == "true"){
+            $product->promoted = true;
+        } else {
+            $product->promoted = false;
+        }
         $product->save();
         
-        return redirect('/products')->with('success', 'Product Created');
+        return redirect('admin.products')->with('success', 'Product Created');
     }
 
     /**
@@ -96,6 +102,7 @@ class ProductController extends Controller
             'description' => 'required',
             'imageurl' => 'required',
             'price' => 'required',
+            'promoted' => 'required'
         ]);
 
         $product = Product::find($id);
@@ -103,9 +110,14 @@ class ProductController extends Controller
         $product->description = $request->input('description');
         $product->imageurl = $request->input('imageurl');
         $product->price = $request->input('price');
+        if($request->input('promoted') == "true"){
+            $product->promoted = true;
+        } else {
+            $product->promoted = false;
+        }
         $product->save();
         
-        return redirect('/products')->with('success', 'Product Updated');
+        return redirect('admin/products')->with('success', 'Product Updated');
     }
 
     /**

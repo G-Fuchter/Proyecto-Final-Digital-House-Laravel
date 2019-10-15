@@ -78,6 +78,11 @@
 
                     <div class="collapse navbar-collapse ml-auto justify-content-center align-content-center align-items-center " id="toogleNavbar ">
                         <ul class="navbar-nav ">
+                            @if(Auth::check() && Auth::user()->roll === 'admin')
+                            <li class="nav-item">
+                                <a class="nav-link dark kappa-bold text-uppercase " href="{{ route('admin') }}"><i class="fas fa-users-cog"></i></a>
+                            </li>
+                            @endif
                             <li class="nav-item ">
                                 <a class="nav-link dark kappa-bold text-uppercase " href="# ">¡Comida rica!</a>
                             </li>
@@ -91,7 +96,7 @@
                                 <a class="nav-link dark kappa-bold text-uppercase " href="{{ route('products.index') }} ">Comprar</a>
                             </li>
                             <li class="nav-item ">
-                                <a class="nav-link dark kappa-bold text-uppercase " href="# ">Faqs</a>
+                                <a class="nav-link dark kappa-bold text-uppercase " href="{{ route('faq') }} ">Faqs</a>
                             </li>
                             <li class="nav-item ">
                                 <a class="nav-link dark kappa-bold text-uppercase " href="{{ route('cart') }}"><i class="fas fa-shopping-cart "></i></a>
